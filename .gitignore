@@ -1,3 +1,7 @@
+# Ignore all files in data/raw/ and data/processed/ directories
+data/raw/*
+data/processed/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

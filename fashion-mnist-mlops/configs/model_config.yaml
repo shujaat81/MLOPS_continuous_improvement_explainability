@@ -1,0 +1,61 @@
+# Model Configuration
+
+# Dataset settings
+dataset:
+  name: "Fashion MNIST"
+  num_classes: 10
+
+# AutoML settings
+automl:
+  tool: "tpot"  # Options: tpot, auto-sklearn
+  time_budget: 3600  # seconds
+  metric: "accuracy"
+  cv: 5
+  random_state: 42
+  output_file: "../models/automl_model.pkl"
+
+# Hyperparameter optimization settings
+hyperparameter_optimization:
+  tool: "optuna"  # Options: optuna, hyperopt
+  n_trials: 100
+  timeout: 3600  # seconds
+  metric: "accuracy"
+  direction: "maximize"
+  cv: 5
+  random_state: 42
+  output_file: "../models/optimized_model.pkl"
+
+# Model candidates
+model_candidates:
+  - name: "logistic_regression"
+    enabled: true
+    params:
+      C: [0.001, 0.01, 0.1, 1.0, 10.0]
+      solver: ["liblinear", "saga"]
+      max_iter: [1000]
+  
+  - name: "random_forest"
+    enabled: true
+    params:
+      n_estimators: [50, 100, 200]
+      max_depth: [10, 20, 30, null]
+      min_samples_split: [2, 5, 10]
+  
+  - name: "svm"
+    enabled: true
+    params:
+      C: [0.1, 1.0, 10.0]
+      kernel: ["linear", "rbf"]
+      gamma: ["scale", "auto"]
+  
+  - name: "neural_network"
+    enabled: true
+    architecture:
+      - [128, "relu"]
+      - [64, "relu"]
+      - [10, "softmax"]
+    params:
+      optimizer: ["adam", "rmsprop"]
+      learning_rate: [0.001, 0.01]
+      batch_size: [64, 128, 256]
+      epochs: [10, 20, 30]

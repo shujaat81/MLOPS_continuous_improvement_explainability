@@ -1,0 +1,54 @@
+# Model Monitoring Configuration
+
+# MLflow settings
+mlflow:
+  tracking_uri: "../mlflow"
+  experiment_name: "fashion-mnist"
+  run_name: "baseline"
+  tags:
+    project: "fashion-mnist-mlops"
+    stage: "development"
+
+# Metrics to track
+metrics:
+  - name: "accuracy"
+    threshold: 0.85
+  - name: "precision"
+    threshold: 0.85
+  - name: "recall"
+    threshold: 0.85
+  - name: "f1"
+    threshold: 0.85
+  - name: "roc_auc"
+    threshold: 0.90
+
+# Drift detection settings
+drift_detection:
+  feature_drift:
+    method: "ks_test"  # Options: ks_test, chi2_test
+    threshold: 0.05
+    window_size: 1000
+  
+  concept_drift:
+    method: "page_hinkley"  # Options: page_hinkley, adwin
+    threshold: 50
+    window_size: 1000
+  
+  performance_drift:
+    metrics: ["accuracy", "f1"]
+    threshold: 0.05
+    window_size: 1000
+
+# Monitoring visualization
+visualization:
+  metrics_plot:
+    enabled: true
+    output_file: "../reports/figures/metrics_over_time.png"
+  
+  drift_plot:
+    enabled: true
+    output_file: "../reports/figures/drift_detection.png"
+  
+  confusion_matrix:
+    enabled: true
+    output_file: "../reports/figures/confusion_matrix.png"

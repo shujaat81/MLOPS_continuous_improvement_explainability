@@ -1,0 +1,55 @@
+# Feature Engineering Configuration
+
+# Dataset settings
+dataset:
+  name: "Fashion MNIST"
+  image_size: [28, 28]
+  num_classes: 10
+
+# Preprocessing settings
+preprocessing:
+  normalization:
+    method: "simple"  # Options: standard, minmax, simple
+    apply: true
+  
+  reshape_for_cnn:
+    apply: true
+  
+  one_hot_encode:
+    apply: true
+
+# Feature extraction settings
+feature_extraction:
+  pca:
+    apply: true
+    n_components: 100
+    random_state: 42
+    output_file: "../data/processed/pca_features.npy"
+  
+  tsne:
+    apply: true
+    n_components: 2
+    perplexity: 30
+    n_iter: 1000
+    random_state: 42
+    output_file: "../data/processed/tsne_features.npy"
+  
+  autoencoder:
+    apply: false
+    architecture: [784, 128, 64, 128, 784]
+    epochs: 50
+    batch_size: 256
+    validation_split: 0.1
+    output_file: "../data/processed/autoencoder_features.npy"
+
+# Explainability settings
+explainability:
+  shap:
+    apply: true
+    n_samples: 100
+    output_file: "../reports/figures/shap_values.png"
+  
+  lime:
+    apply: true
+    n_samples: 5
+    output_file: "../reports/figures/lime_explanation.png"

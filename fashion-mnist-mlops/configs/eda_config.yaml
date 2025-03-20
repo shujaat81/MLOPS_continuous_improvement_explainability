@@ -1,0 +1,60 @@
+# EDA Configuration
+
+# Dataset settings
+dataset:
+  name: "Fashion MNIST"
+  description: "Fashion MNIST dataset consisting of 70,000 grayscale images in 10 categories"
+  image_size: [28, 28]
+  num_classes: 10
+  class_names: 
+    - "T-shirt/top"
+    - "Trouser"
+    - "Pullover"
+    - "Dress"
+    - "Coat"
+    - "Sandal"
+    - "Shirt"
+    - "Sneaker"
+    - "Bag"
+    - "Ankle boot"
+
+# EDA tools settings
+eda_tools:
+  pandas_profiling:
+    enabled: true
+    minimal: false
+    title: "Fashion MNIST EDA Report"
+    output_file: "../reports/eda_reports/pandas_profiling_report.html"
+  
+  sweetviz:
+    enabled: true
+    output_file: "../reports/eda_reports/sweetviz_report.html"
+  
+  dtale:
+    enabled: false
+
+# Visualization settings
+visualizations:
+  class_distribution:
+    enabled: true
+    title: "Class Distribution in Fashion MNIST"
+    figsize: [10, 6]
+    output_file: "../reports/figures/class_distribution.png"
+  
+  sample_images:
+    enabled: true
+    samples_per_class: 5
+    figsize: [15, 10]
+    output_file: "../reports/figures/sample_images.png"
+  
+  pixel_intensity:
+    enabled: true
+    figsize: [12, 8]
+    output_file: "../reports/figures/pixel_intensity_distribution.png"
+  
+  correlation_matrix:
+    enabled: true
+    method: "spearman"  # Options: pearson, spearman, kendall
+    figsize: [14, 12]
+    output_file: "../reports/figures/correlation_matrix.png"
+    max_features: 10  # Limit number of features for correlation to avoid memory issues

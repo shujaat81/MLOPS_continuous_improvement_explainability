@@ -1,0 +1,38 @@
+# Data manipulation
+numpy
+pandas
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+
+# EDA tools
+ydata-profiling
+sweetviz
+dtale
+
+# Deep learning
+tensorflow
+keras
+
+# Feature engineering
+featuretools
+
+# Explainability
+shap
+lime
+
+# AutoML and hyperparameter optimization
+tpot
+optuna
+hyperopt
+
+# Model tracking and monitoring
+mlflow
+evidently
+
+# Utilities
+jupyter
+pyyaml
+tqdm
