@@ -35,7 +35,7 @@ feature_extraction:
     output_file: "../data/processed/tsne_features.npy"
   
   autoencoder:
-    apply: false
+    apply: true
     architecture: [784, 128, 64, 128, 784]
     epochs: 50
     batch_size: 256
