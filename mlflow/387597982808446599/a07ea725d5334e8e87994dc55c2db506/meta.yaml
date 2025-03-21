@@ -1,0 +1,15 @@
+artifact_uri: /home/shujaat_tracebloc/open_source/MLOPS_continuous_improvement_explainability/notebooks/../mlflow/387597982808446599/a07ea725d5334e8e87994dc55c2db506/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '387597982808446599'
+lifecycle_stage: active
+run_id: a07ea725d5334e8e87994dc55c2db506
+run_name: baseline
+run_uuid: a07ea725d5334e8e87994dc55c2db506
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742559930888
+status: 1
+tags: []
+user_id: shujaat_tracebloc
